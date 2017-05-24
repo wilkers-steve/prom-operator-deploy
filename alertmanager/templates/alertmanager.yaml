@@ -1,0 +1,9 @@
+apiVersion: "monitoring.coreos.com/v1alpha1"
+kind: "Alertmanager"
+metadata:
+  name: {{ .Values.alertmanager.metadata.name }}
+  labels:
+    alertmanager: {{ .Values.alertmanager.metadata.label.alertmanager }}
+spec:
+  replicas: {{ .Values.replicas.alertmanager }}
+  version: {{ .Values.alertmanager.version }}
