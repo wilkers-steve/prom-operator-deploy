@@ -15,7 +15,7 @@
 HELM = helm
 TASK = build
 
-CHARTS = alertmanager grafana kube-state-metrics node-exporter prometheus prometheus_operator
+CHARTS = alertmanager kube-state-metrics node-exporter prometheus_operator
 
 all: $(CHARTS)
 
