@@ -30,7 +30,7 @@ spec:
        - name: prometheus-operator
          image: {{ .Values.images.operator }}
          args:
-         - "--kubelet-object=kube-system/kubelet"
+         - "--kubelet-service=kube-system/kubelet"
          - "--config-reloader-image=quay.io/coreos/configmap-reload:v0.0.1"
          {{ if .Values.resources.enabled }}
          resources:

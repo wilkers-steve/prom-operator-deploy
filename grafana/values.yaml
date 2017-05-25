@@ -22,9 +22,9 @@ images:
   pull_policy: IfNotPresent
 
 network:
-  nodeport:
+  node_port:
     enabled: true
-    port:
+    port: 30902
   port:
     name: web
     port: 3000

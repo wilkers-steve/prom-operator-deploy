@@ -22,7 +22,7 @@ spec:
   selector:
     app: grafana
   sessionAffinity: "ClientIP"
-  {{ if .Values.node_port.enabled }}
+  {{ if .Values.network.node_port.enabled }}
   type: NodePort
   {{ else }}
   type: LoadBalancer
@@ -31,6 +31,6 @@ spec:
   - name: {{ .Values.network.port.name }}
     port: {{ .Values.network.port.port }}
     protocol: TCP
-    {{ if .Values.node_port.enabled }}
-    nodePort: {{ .Values.node_port.port }}
+    {{ if .Values.network.node_port.enabled }}
+    nodePort: {{ .Values.network.node_port.port }}
     {{ end }}

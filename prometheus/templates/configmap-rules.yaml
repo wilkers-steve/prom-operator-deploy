@@ -21,5 +21,7 @@ metadata:
     role: prometheus-rulefiles
     prometheus: k8s
 data:
-  etcd2.rules: |+
-{{ toYaml tuple "rules/_etcd2.rules.tpl" . | include "helm-toolkit.template" | indent 4 }}
+  etcd2.rules: |
+{{ (.Files.Glob "files/rules/etc2.rules").AsConfig | indent 4 }}
+  kubernetes.rules: |
+{{ (.Files.Glob "files/rules/kubernetes.rules").AsConfig | indent 4 }}

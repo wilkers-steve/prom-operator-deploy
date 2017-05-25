@@ -17,15 +17,4 @@ kind: ConfigMap
 metadata:
   name: grafana-dashboards
 data:
-  all-nodes-dashboard.json: |
-{{- tuple "dashboards/_all-nodes-dashboard.json.tpl" . | include "helm-toolkit.template" indent 4 }}
-  deployment-dashboard.json: |
-{{- tuple "dashboards/_deployment-dashboard.json.tpl" . | include "helm-toolkit.template" | indent 4 }}
-  kubernetes-pods-dashboard.json: |+
-{{- tuple "dashboards/_kubernetes-pods-dashboard.json.tpl" . | include "helm-toolkit.template" | indent 4 }}
-  node-dashboard.json: |+
-{{- tuple "dashboards/_node-dashboard.json.tpl" . | include "helm-toolkit.template" | indent 4 }}
-  prometheus-datasource.json: |+
-{{- tuple "dashboards/_prometheus-datasource.json.tpl" . | include "helm-toolkit.template" | indent 4 }}
-  resource-requests-dashboard.json: |+
-{{- tuple "dashboards/_resource-requests-dashboard.json.tpl" . | include "helm-toolkit.template" | indent 4 }}
+{{ (.Files.Glob "dashboards/*").AsConfig | indent 2}}
