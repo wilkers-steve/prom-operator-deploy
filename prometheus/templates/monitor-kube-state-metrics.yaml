@@ -28,6 +28,6 @@ spec:
     matchNames:
     - monitoring
   endpoints:
-  - port: {{ .Values.monitors.kube_state_metrics.target_port }}
-    interval: 15s
+  - port: {{ .Values.monitors.kube_state_metrics.endpoint.port }}
+    interval: {{ .Values.monitors.kube_state_metrics.endpoint.interval }}
     honorLabels: true

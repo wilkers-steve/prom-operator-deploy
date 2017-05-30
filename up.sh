@@ -26,6 +26,8 @@ echo "Third party resources registered successfully."
 
 helm install --name=node-exporter local/node-exporter --namespace=monitoring
 sleep 5
+helm install --name=openstack-exporter local/openstack-exporter --namespace=monitoring
+sleep 5
 helm install --name=kube-state-metrics local/kube-state-metrics --namespace=monitoring
 sleep 5
 helm install --name=grafana local/grafana --namespace=monitoring

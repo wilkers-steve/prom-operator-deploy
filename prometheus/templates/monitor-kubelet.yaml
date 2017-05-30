@@ -27,5 +27,5 @@ spec:
     matchNames:
     - kube-system
   endpoints:
-  - port: {{ .Values.monitors.kubelet.target_port }}
-    interval: 15s
+  - port: {{ .Values.monitors.kubelet.endpoint.port }}
+    interval: {{ .Values.monitors.kubelet.endpoint.interval }}

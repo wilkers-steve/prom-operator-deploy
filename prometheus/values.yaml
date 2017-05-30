@@ -28,14 +28,18 @@ monitors:
     endpoint:
       port: http-metrics
       interval:
+  openstack_exporter:
+    endpoint:
+      port: metrics
+      interval: 15s
   kubelet:
     endpoint:
       port: http-metrics
-      interval:
+      interval: 15s
   kube_state_metrics:
     endpoint:
       port: http-metrics
-      interval:
+      interval: 15s
   k8s_apps:
     endpoints:
       metrics:

@@ -12,15 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-apiVersion: monitoring.coreos.com/v1alpha1
-kind: ServiceMonitor
+apiVersion: v1
+kind: ConfigMap
 metadata:
-  name: prometheus
-  labels:
-    prometheus: k8s
-spec:
-  endpoints:
-  - port: {{ .Values.monitors.prometheus.endpoint.port }}
-  selector:
-    matchExpressions:
-    - {key: prometheus, operator: In, values: [k8s]}
+  name: os-exporter-etc
+data:
+  prometheus-openstack-exporter.yaml: |+
+{{ tuple "etc/_prometheus-openstack-exporter.yaml.tpl" . | include "helm-toolkit.template" | indent 4 }}

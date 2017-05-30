@@ -15,12 +15,18 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ServiceMonitor
 metadata:
-  name: prometheus
+  name: openstack-exporter
+  namespace: monitoring
   labels:
-    prometheus: k8s
+    k8s-apps: http
 spec:
-  endpoints:
-  - port: {{ .Values.monitors.prometheus.endpoint.port }}
+  jobLabel: k8s-app
   selector:
-    matchExpressions:
-    - {key: prometheus, operator: In, values: [k8s]}
+    matchLabels:
+      k8s-app: openstack-exporter
+  namespaceSelector:
+    matchNames:
+    - monitoring
+  endpoints:
+  - port: {{ .Values.monitors.openstack_exporter.endpoint.port }}
+    interval: {{ .Values.monitors.openstack_exporter.endpoint.interval }}
