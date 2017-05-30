@@ -28,5 +28,5 @@ spec:
     matchNames:
     - monitoring
   endpoints:
-  - port: {{ .Values.monitors.node_exporter.target_port }}
-    interval: 15s
+  - port: {{ .Values.monitors.node_exporter.endpoint.port }}
+    interval: {{ .Values.monitors.node_exporter.endpoint.interval }}

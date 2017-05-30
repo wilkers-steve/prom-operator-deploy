@@ -16,7 +16,7 @@ HELM = helm
 TASK = build
 
 CHARTS = alertmanager kube-state-metrics node-exporter prometheus_operator
-CHARTS += prometheus grafana
+CHARTS += prometheus grafana openstack-exporter
 
 all: $(CHARTS)
 
