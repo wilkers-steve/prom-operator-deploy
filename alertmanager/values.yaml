@@ -25,7 +25,7 @@ alertmanager:
 
 network:
   node_port:
-      enabled: false
+      enabled: true
       port: 30903
   port:
     name: web
